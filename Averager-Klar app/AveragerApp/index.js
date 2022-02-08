@@ -4,7 +4,7 @@
 // Don't forget to include your CSS-file in the folder
 
 // Include the link to your Github Repository here:
-// Link: https://github.com/veronicaliljegren/me132a-U1.git
+// Link: https://github.com/veronicaliljegren/me132a-U1.git 
 
 
 

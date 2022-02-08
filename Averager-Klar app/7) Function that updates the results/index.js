@@ -108,14 +108,14 @@ function roundString(numberWithManyDecimals, decimals){
 }
 
 function createNumberDiv () {
-  let numberDiv = document.createElement ("div");
-  numberDiv.innerHTML = Math.floor( 99 * Math.random ());
-  numberDiv.addEventListener ("click", function () {
-  numberDiv.classList.toggle ("selected");
+  let divs = document.createElement ("div");
+  divs.innerHTML = Math.floor( 99 * Math.random ());
+  divs.addEventListener ("click", function () {
+  divs.classList.toggle ("selected");
 
 divs.addEventListener ("click", updateResults ("selected"))
 });
-  return numberDiv;
+  return divs;
 };
 
 function adder (_array) {

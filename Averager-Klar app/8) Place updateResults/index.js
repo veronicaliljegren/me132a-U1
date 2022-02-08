@@ -15,7 +15,7 @@ function gridMaker (gridContainer, R, C) {
 
   for ( let i = 0; i < C; i++ ) {
           for ( let ii = 0; ii < R; ii++ ) {
-                  gridContainer.appendChild(createNumberDiv ());
+                  gridContainer.appendChild (createNumberDiv ());
   };
   };
 }
@@ -35,7 +35,6 @@ document.querySelector("#inputCols").value);
 window.onload = gridMaker(document.querySelector("#grid"),
 document.querySelector("#inputRows").value,
 document.querySelector("#inputCols").value);
-
 /*
 
 By now:
@@ -47,12 +46,21 @@ When the user clicks on a number, that number becomes selected (if it were desel
 deselected (if it were selected). In other words, by clicking on a number, the user toggles
 the class "selected" for that number.
 
+Also, you have a function updateResults that, when called, updates the results.
 
-In this part of the exercise:
-We will make sure that the results (selected, amount, sum and average) are updated
-each time a number is selected or deselected.
+Now you need to place the call to that function updateResults in the right place in the code so
+that the results are updated each time the user selects or deselects a number.
+
+
+VIDEO:  Record a video where you explain where you have placed all the lines
+        required to update the results, and why.
+        This video must be called placementExplanation
+
+
 
 */
+
+
 
 /*
 
@@ -68,10 +76,9 @@ The function getArrayOfSelectedNumbers does the following:
   1)  Declares an empty array
   2)  Goes through all the numberDivs in the grid and fills the 
       array with the numbers that are selected. In other words,
-      with the numbers whose numberDiv has the class className
-  3)  Returns the array with all the numbers whose numberDiv has the class className
+      with the numbers whose numberDiv has the class "selected"
+  3)  Returns the array with all the selected numbers
 
-  NOTE that you need to set the argument className when you make the function call
 */
 
 function getArrayOfSelectedNumbers (className) {
@@ -92,67 +99,13 @@ function getArrayOfSelectedNumbers (className) {
     let numberAsString = arrayElements[i].innerHTML;
     let number = parseInt(numberAsString);
     arrayNumbers.push(number);
-
   }
 
-  
   // Make the array of numbers available outside the function
   return arrayNumbers;
-  
-};
-
-function roundString(numberWithManyDecimals, decimals){
-  // From: https://stackoverflow.com/a/12698296/2027283
-  var rounded = Math.pow(10, decimals);
-  return (Math.round(numberWithManyDecimals * rounded) / rounded).toFixed(decimals);
-}
-
-function createNumberDiv () {
-  let numberDiv = document.createElement ("div");
-  numberDiv.innerHTML = Math.floor( 99 * Math.random ());
-  numberDiv.addEventListener ("click", function () {
-  numberDiv.classList.toggle ("selected");
-
-divs.addEventListener ("click", updateResults ("selected"))
-});
-  return numberDiv;
-};
-
-function adder (_array) {
-  let sum = 0;
-  for (let i = 0 ; i < _array.length ; i++){
-    sum = sum +_array[i];
-  }
-  return sum;
-}
-
-  function averg (_arr) {
-    let average = adder(_arr) / _arr.length;
-    average = roundString(average, 1);
-    return average;
-  }
-
-function updateResults (className) {
-
-
-  let array = getArrayOfSelectedNumbers(className);
-
-  let selected = array.join(", ");
-
-
-  let amount = array.length;
-  let sum = adder(array);
-  let average = roundString(averg(array), 1);
-
-  document.querySelector("#selected span").innerHTML = selected;
-  document.querySelector("#amount span").innerHTML = amount;
-  document.querySelector("#sum span").innerHTML = sum;
-  document.querySelector("#average span").innerHTML = average;
 
 }
 
-console.log( [1,3,4,10,0,1].join() );
-console.log( [1,3,4,10,0,1].join(" - ") );
 
 /*
 
@@ -231,3 +184,10 @@ below to always show a number that has one decimal.
 
 
 */
+
+function roundString(numberWithManyDecimals, decimals){
+  // From: https://stackoverflow.com/a/12698296/2027283
+  var rounded = Math.pow(10, decimals);
+  return (Math.round(numberWithManyDecimals * rounded) / rounded).toFixed(decimals);
+}
+
