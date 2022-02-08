@@ -6,7 +6,7 @@ body {
   }
   
   * {
-    font-family: 'Montserrat', sans-serif;
+    font: 20px "Roboto Condensed";
   }
   
   #top > div {
@@ -31,11 +31,11 @@ body {
     display: grid;
     gap: 1vh;
   
-    font-size: 2vh;
+    font-size: 3vh;
   
-    border: 1px solid thistle;
+    border: 1px solid grey;
   
-    font-family: 'Montserrat', sans-serif;
+    font: 25px "Supermercado One";
   }
   
   #grid > div {
@@ -43,17 +43,16 @@ body {
     justify-content: center;
     align-items: center;
   
-    background-color: thistle;
-    color: whitesmoke;
+    background-color: grey;
   }
   
   #grid > div.selected {
-    background-color: lightyellow;
-    color: thistle;
+    background-color: aqua;
+    color: navy;
   }
   
   #grid > div:hover {
     cursor: pointer;
-    box-shadow: 0 0 10px lightgoldenrodyellow;
+    box-shadow: 0 0 10px black;
   }
   

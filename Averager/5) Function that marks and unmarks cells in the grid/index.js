@@ -1,4 +1,4 @@
-"use strict";
+
 
 /*
 
@@ -49,6 +49,53 @@ must get its eventListener.
 The only thing the eventListener needs to do (so far) is to toggle the class "selected" from
 the classList.
 
+Modify createNumberDiv so that the numberDivs react to click events. When clicked, a numberDiv
+must toggle the class "selected". So: if it didn't have the class "selected", it must be added
+to the classList. If it did have the class "selected" it must be removed from the classList.
 */
+"use strict";
+
+gridMaker(
+    document.querySelector("#grid"), R, C);
+
+    function createNumberDiv(){
+        let numberDiv = document.createElement("div");
+        numberDiv.innerHTML=randomNumber(100);
+
+        return numberDiv;
+    }
+
+    function gridMaker( gridContainer, R, C){
+        gridContainer.style.gridTemplateRows = `repeat(${R}, 1fr)`;    
+        gridContainer.style.gridTemplateColumns = `repeat(${C}, 1fr)`;
+  
+        let nTotal = R * C;
+        for (let i = 0; i < nTotal; i++) {
+            gridContainer.appendChild( createNumberDiv() );
+
+        }
+    }      
+
+    function randomNumber (max) {
+        return Math.floor(max * Math.random());
+    }
 
 
+    function createNumberDiv () {
+
+        let numberDiv = document.createElement("div");
+        numberDiv.innerHTML = randomNumber(100);
+  
+        numberDiv.addEventListener("click", function() {
+  
+            numberDiv.classList.toggle("selected");
+  
+            updateResults("selected");
+  
+        });
+  
+    return numberDiv;
+  
+  }
+
+ 

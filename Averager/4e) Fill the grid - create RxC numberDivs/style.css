@@ -6,6 +6,10 @@ body {
   flex-direction: column;
 }
 
+* {
+  font: 20px "Roboto Condensed";
+}
+
 #top > div {
   display: flex;
   flex-basis: 6vh;
@@ -15,6 +19,10 @@ body {
 
 #top > div > div {
   margin: 0px 2vh;
+}
+
+#results span {
+  font-weight: bolder;
 }
 
 #grid {
@@ -27,6 +35,8 @@ body {
   font-size: 3vh;
 
   border: 1px solid grey;
+
+  font: 25px "Supermercado One";
 }
 
 #grid > div {
@@ -46,4 +56,3 @@ body {
   cursor: pointer;
   box-shadow: 0 0 10px black;
 }
-

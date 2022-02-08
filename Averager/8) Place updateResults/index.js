@@ -1,6 +1,40 @@
 "use strict";
 
+function gridMaker (gridContainer, R, C) {
 
+  gridContainer.style.display ="grid";
+  gridContainer.style["gridTemplateRows"] = `repeat(${R}, 1fr)`;
+  gridContainer.style["gridTemplateColumns"] = `repeat(${C}, 1fr)`;
+
+  gridContainer.innerHTML = "";
+
+  document.querySelector("#selected span").innerHTML = "";
+  document.querySelector("#amount span").innerHTML = "";
+  document.querySelector("#sum span").innerHTML = "";
+  document.querySelector("#average span").innerHTML = "";
+
+  for ( let i = 0; i < C; i++ ) {
+          for ( let ii = 0; ii < R; ii++ ) {
+                  gridContainer.appendChild (createNumberDiv ());
+  };
+  };
+}
+
+document.querySelector ("button").addEventListener ("click", function () {
+  gridMaker (
+      document.querySelector("#grid"),
+      document.getElementById ("inputRows").value,
+      document.getElementById ("inputCols").value
+  )
+});
+
+document.onload = gridMaker(document.querySelector("#grid"), 
+document.querySelector("#inputRows").value, 
+document.querySelector("#inputCols").value);
+
+window.onload = gridMaker(document.querySelector("#grid"),
+document.querySelector("#inputRows").value,
+document.querySelector("#inputCols").value);
 /*
 
 By now:

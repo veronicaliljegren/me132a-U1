@@ -40,7 +40,8 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 
 
 // E6:  To get the value shown in an input field we use this:
-//      document.querySelector("#input_test_1").value
+     document.querySelector("#input_test_1").value;
+     console.log(document.querySelector("#input_test_1").value);
 //      Log to the console the current value of #input_test_1. It should
 //      be 13, if you managed the previous E correctly.
 
@@ -53,8 +54,10 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 //      the browser logs the current value of the input field on the console.
 //      Test this by manually changing the value of the input field. That is,
 //      by going to the webpage and changing that value.
-
-
+     document.querySelector("#button_test_1").addEventListener("click",function(){
+     console.log(document.querySelector("#input_test_1").value);
+     });
+ 
 // E9:  NOTE that the value from the input field is a string, even if the input
 //      had type="number". You can see this in two ways:
 //      1) By the color the value has when logged to the console (white). Numbers are green.
@@ -62,17 +65,29 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number
 //      Test both ways.
 
 
+
+
 // E10: We want to transform the string "1" (for instance) into the number 1.
 //      This can be done with parseInt().
 //      So parseInt("1") will return the number 1
 //      What will be logged in the lines below?
 let a = "23";
-// console.log( parseInt( a ) + 1 );
-// console.log( a + 1 );
+console.log( parseInt( a ) + 1 );
+console.log( a + 1 );
 
 
 // E11: Code a function (F1) that adds 23 to the number in the input field and
 //      logs the result to the console.
+
+
+function F1(){
+    console.log(parseInt(document.querySelector( "#input_test_1" ).value)+23)
+}
+
+document.querySelector("#button_test_1").addEventListener("click", F1)
+    console.log(document.querySelector("#input_test_1").value);
+
+
 
 
 // E12: Now make sure that F1 is called when the user clicks on #button_test_1
@@ -87,4 +102,3 @@ let a = "23";
 //    another one with 23 + the numberic value of the input field
 //  every time the user clicks on the button.
 //  Well done!
-
